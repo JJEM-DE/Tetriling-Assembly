@@ -1,7 +1,10 @@
+from copy import deepcopy
 
-limit_tetris = {1:0,2:0,5:0}
+A = [4,5,6,9]
 
-while not all(value == 0 for value in limit_tetris.values()):
-	print("Yay")
+B = deepcopy(A)
 
-print("success")
+B[2] = 123
+
+print(A)
+print(B)

@@ -20,6 +20,17 @@ from copy import deepcopy
 #             [0, 1, 1, 1, 0],
 #             [1, 1, 1, 1, 1]
 #          ]
+
+# CUSTOM Example target shape, limit_tetris, and perfect_solution
+# target = [
+#             [1, 1, 1, 0, 0],
+#             [1, 1, 1, 1, 0],
+#             [0, 1, 1, 1, 0],
+#             [0, 1, 1, 1, 0],
+#             [1, 1, 1, 0, 0]
+#          ]
+
+
          
 limit_tetris = {1: 1, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 1, 9: 0, 10: 0, 11: 0, 12: 0, 13: 1, 14: 0, 15: 0, 16: 0, 17: 0, 18: 1, 19: 0}
 
@@ -33,7 +44,7 @@ perfect_solution = [
 # NOTE: This example is used for the mock solution from 'main.py' only.
 
 # Uncomment the following line to generate a random target shape
-target, limit_tetris, perfect_solution = utils.generate_target(width=8, height=8, density=0.5)  # NOTE: it is recommended to keep density below 0.8
+target, limit_tetris, perfect_solution = utils.generate_target(width=5, height=5, density=0.5)  # NOTE: it is recommended to keep density below 0.8
 
 solution = Tetris(deepcopy(target),deepcopy(limit_tetris))
 
