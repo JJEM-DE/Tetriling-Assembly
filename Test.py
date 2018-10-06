@@ -1,10 +1,5 @@
-from copy import deepcopy
-
-A = [4,5,6,9]
-
-B = deepcopy(A)
-
-B[2] = 123
-
-print(A)
-print(B)
+for num in range(2, 10):
+	if num % 2 == 0:
+		print("Found an even number", num)
+		continue
+	print("Found a number", num)
