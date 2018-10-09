@@ -44,7 +44,7 @@ perfect_solution = [
 # NOTE: This example is used for the mock solution from 'main.py' only.
 
 # Uncomment the following line to generate a random target shape
-target, limit_tetris, perfect_solution = utils.generate_target(width=1000, height=1000, density=0.5)  # NOTE: it is recommended to keep density below 0.8
+target, limit_tetris, perfect_solution = utils.generate_target(width=50, height=50, density=0.5)  # NOTE: it is recommended to keep density below 0.8
 
 solution = Tetris(deepcopy(target),deepcopy(limit_tetris))
 

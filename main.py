@@ -21,14 +21,18 @@ def Tetris(target, limit_tetris):
 		for j in range(len(M[0])):
 			M[i][j] = (0, 0)
 
+
+	J = deepcopy(target)   # Array for placing in weights
+
+
+	for i in range(len(J)):
+		for j in range(len(J[0])):
+			
+
+
+
+
 	##########main loop to place pieces############
-
-	##looks for places only certain pieces can be placed
-
-
-
-
-
 
 
 	##an approach of going piece by piece finding a spot for each one as you go
@@ -42,6 +46,12 @@ def Tetris(target, limit_tetris):
 				for i in range(len(M)):     #check each space in the grid
 					for j in range(len(M[0])):   #check each space in the grid
 						print("I'm here! The key is {0}, i = {1} and j = {2}. PieceID = {3}. ShapeID = {4}".format(key, i, j, n, shapeID))
+
+						##if weight =3
+
+
+
+
 						if target[i][j] == 1 and limit_tetris[key] !=0 :
 							print("I've got here now!")
 							try:        # To fix index error
