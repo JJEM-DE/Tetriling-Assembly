@@ -10,8 +10,14 @@ import utils  # it might be helpful to use 'utils.py'
 
 def Tetris(target, limit_tetris):
 
+
+	########## SETUP #########
+
 	n = 1 #piece ID
-	shapeID = 0
+	shapeID = 0 #shapeID
+	J = deepcopy(target)  # Array for placing in weights
+
+
 
 
 	#blank solution:
@@ -22,13 +28,39 @@ def Tetris(target, limit_tetris):
 			M[i][j] = (0, 0)
 
 
-	J = deepcopy(target)   # Array for placing in weights
 
 
-	for i in range(len(J)):
-		for j in range(len(J[0])):
-			
 
+
+	def weighting():
+		for a in range(len(J)):
+			for b in range(len(J[0])):
+				try:
+					weight = 0
+					if J[a - 1][b] >= 1:
+						weight += 1
+					if J[a + 1][b] >= 1:
+						weight += 1
+					if J[a][b + 1] >= 1:
+						weight += 1
+					if J[a][b - 1] >= 1:
+						weight += 1
+
+					J[a][b] = weight
+
+				except IndexError:
+					pass
+
+
+					####problem is that have to do "try except" for all if statements - actually probably not?
+
+				#need to call weighting early in code and then overwrite J with 0s in the place a piece was just placed when placed
+
+
+
+		return J
+
+	weighting() #setting up J for the first time
 
 
 
@@ -49,6 +81,8 @@ def Tetris(target, limit_tetris):
 
 						##if weight =3
 
+						if J[i][j] < 3:
+							break
 
 
 
@@ -95,6 +129,18 @@ def Tetris(target, limit_tetris):
 									print(limit_tetris[key])
 									limit_tetris[key] = limit_tetris[key] - 1
 
+									#replace shape in J with 0s
+
+									J[i][j] = 0
+									J[i + shape[1][0]][j + shape[1][1]] = 0
+									J[i + shape[2][0]][j + shape[2][1]] = 0
+									J[i + shape[3][0]][j + shape[3][1]] = 0
+
+									#redo J with new weightings
+
+									weighting()
+
+
 							except IndexError:
 								pass
 
@@ -102,7 +148,7 @@ def Tetris(target, limit_tetris):
 
 
 
-
-
+		for i in range(len(J)):
+			print(J[i])
 		return M
 

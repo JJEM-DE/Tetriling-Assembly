@@ -1,5 +1,6 @@
-for num in range(2, 10):
-	if num % 2 == 0:
-		print("Found an even number", num)
-		continue
-	print("Found a number", num)
+
+
+limit_tetris = {1: 1, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 1, 9: 0, 10: 0, 11: 0, 12: 0, 13: 1, 14: 0, 15: 0, 16: 0, 17: 0, 18: 1, 19: 0}
+
+
+print(limit_tetris[1])
